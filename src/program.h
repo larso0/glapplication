@@ -8,8 +8,9 @@
 #ifndef PROGRAM_H_
 #define PROGRAM_H_
 
-#include "gl_includes.h"
-#include "shader.h"
+#include <GL/glew.h>
+#include <GL/gl.h>
+#include <shader.h>
 #include <string>
 
 namespace gltools
