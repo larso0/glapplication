@@ -87,12 +87,22 @@ void program::use()
 
 GLint program::get_attribute_location(std::string attribute_name)
 {
-    return glGetAttribLocation(object_id, attribute_name.c_str());
+    GLint loc = glGetAttribLocation(object_id, attribute_name.c_str());
+    if(loc == -1)
+    {
+        throw std::runtime_error("Could not get attribute location for attribute with name \"" + attribute_name + "\".");
+    }
+    return loc;
 }
 
 GLint program::get_uniform_location(std::string uniform_name)
 {
-    return glGetUniformLocation(object_id, uniform_name.c_str());
+    GLint loc = glGetUniformLocation(object_id, uniform_name.c_str());
+    if(loc == -1)
+    {
+        throw std::runtime_error("Could not get uniform location for uniform with name \"" + uniform_name + "\".");
+    }
+    return loc;
 }
 
 } /* namespace gltools */
