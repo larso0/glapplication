@@ -27,6 +27,8 @@ public:
     GLuint get_object_id() const;
     const std::string& get_infolog() const;
     void use();
+    GLint get_attribute_location(std::string attribute_name);
+    GLint get_uniform_location(std::string uniform_name);
 
 private:
     bool shaders_attached;
