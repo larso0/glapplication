@@ -129,7 +129,12 @@ void application::init()
     }
 
     glewExperimental = GL_TRUE;
-    glewInit();
+    GLenum glewerror = glewInit();
+    if(glewerror != GLEW_OK)
+    {
+        std::string errorstr((const char*)glewGetErrorString(error));
+        throw std::runtime_error("Unable to initialize GLEW: " + errorstr);
+    }
 
     initialized = true;
 }
