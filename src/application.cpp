@@ -128,6 +128,9 @@ void application::init()
         }
     }
 
+    glewExperimental = GL_TRUE;
+    glewInit();
+
     initialized = true;
 }
 
@@ -140,7 +143,7 @@ void application::main_loop()
         float ntime = SDL_GetTicks()/1000.f;
         float delta = ntime - current_time;
         current_time = ntime;
-        frame(delta);
+        update(delta);
         while(SDL_PollEvent(&event))
         {
             switch(event.type)

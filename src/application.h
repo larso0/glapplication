@@ -45,7 +45,7 @@ protected:
     virtual void startup() = 0;
     virtual void shutdown() = 0;
     virtual void resize(int w, int h) = 0;
-    virtual void frame(float delta) = 0;
+    virtual void update(float delta) = 0;
     virtual void event(SDL_Event* event) = 0;
 
 private:
